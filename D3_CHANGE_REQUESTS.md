@@ -19,3 +19,13 @@
 | Severity            | Major                                                                                                                |
 | Time to Implement   | 1 person-week                                                                                                        |
 | Verification Method | Testing and inspection                                                                                               |
+## CR2
+| Attribute           | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| Associated Feature  | Car Review System                                                    |
+| Description         | Rating input does not restrict values to the required 1–5 star range |
+| Maintenance Type    | Corrective                                                           |
+| Priority            | High                                                                 |
+| Severity            | Critical                                                             |
+| Time to Implement   | 0.5 person-weeks                                                     |
+| Verification Method | Unit testing                                                         |
