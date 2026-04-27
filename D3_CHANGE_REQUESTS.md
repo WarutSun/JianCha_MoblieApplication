@@ -7,9 +7,9 @@
 ---
 ## 🔧 Feature 1: Car Review System
 
-## 🛠️ Corrective Change Requests
+### 🛠️ Corrective Change Requests
 
-## CR1
+### CR1
 | **Attribute**       | **Description**                                                                                                      |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Associated Feature  | Car Review System                                                                                                    |
@@ -19,7 +19,7 @@
 | Severity            | Major                                                                                                                |
 | Time to Implement   | 1 person-week                                                                                                        |
 | Verification Method | Testing and inspection                                                                                               |
-## CR2
+### CR2
 | Attribute           | Description                                                          |
 | ------------------- | -------------------------------------------------------------------- |
 | Associated Feature  | Car Review System                                                    |
