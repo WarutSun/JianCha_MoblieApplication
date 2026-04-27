@@ -111,3 +111,13 @@ Verification Method: Test coverage report
 | Severity            | Major                                                                                      |
 | Time to Implement   | 1 person-week                                                                              |
 | Verification Method | Functional testing                                                                         |
+
+| **Attribute**       | **Description**                                                                                                      |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Associated Feature  | Car Review System                                                                                                    |
+| Description         | Users are unable to submit reviews after completing a rental due to missing status validation for completed bookings |
+| Maintenance Type    | Corrective                                                                                                           |
+| Priority            | High                                                                                                                 |
+| Severity            | Major                                                                                                                |
+| Time to Implement   | 1 person-week                                                                                                        |
+| Verification Method | Testing and inspection                                                                                               |
