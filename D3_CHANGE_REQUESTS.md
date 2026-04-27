@@ -1,9 +1,8 @@
 # D3: Change Request Analysis
 
 ## Feature List (Requested by Product Owner - JianCha)
-1. Mobile Client Application (Android)
-2. Car Review System
-3. One-way Rental / Different Drop-off Location
+1. Car Review System
+2. One-way Rental / Different Drop-off Location
 
 ---
 
@@ -102,3 +101,13 @@ Time to Implement: 1 week
 Verification Method: Test coverage report  
 
 ---
+
+| Attribute           | Description                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| Associated Feature  | Car Review System                                                                          |
+| Description         | System allows users to submit reviews without verifying that the rental has been completed |
+| Maintenance Type    | Corrective                                                                                 |
+| Priority            | High                                                                                       |
+| Severity            | Major                                                                                      |
+| Time to Implement   | 1 person-week                                                                              |
+| Verification Method | Functional testing                                                                         |
