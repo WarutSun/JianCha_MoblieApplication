@@ -35,3 +35,6 @@ the old one
 | **D4: Read/Write** | R1, R4, R5, R6 | Database schema, transaction boundaries | Repository save/find/update, migration scripts | ACID tests, concurrent write tests, rollback tests |
 
 ---
+
+
+![Context Diagram](https://github.com/WarutSun/JianCha_MoblieApplication/blob/d603628a4cffc5a8ee57ccec0116d29e5c65f23f/Brfore_chages.drawio.svg)
