@@ -126,13 +126,13 @@
 
 ### Preventive Change Requests
 ### CR11
-| Attribute           | Description                                                                                     |
-| ------------------- | ----------------------------------------------------------------------------------------------- |
-| Associated Feature  | One-way Rental                                                                                  |
-| Description         | Add validation to prevent invalid or unsupported location combinations for pick-up and drop-off |
-| Maintenance Type    | Preventive                                                                                      |
-| Priority            | High                                                                                            |
-| Severity            | Major                                                                                           |
-| Time to Implement   | 1 person-week                                                                                   |
-| Verification Method | Validation testing                                                                              |
+| Attribute           | Description                                                                                                                     |
+| ------------------- | -----------------------------------------------------------------------------------------------                                 |
+| Associated Feature  | One-way Rental                                                                                                                  |
+| Description         | Implement dropdown selection for drop-off locations to prevent users from entering invalid or unsupported location combinations |
+| Maintenance Type    | Preventive                                                                                                                      |
+| Priority            | High                                                                                                                            |
+| Severity            | Major                                                                                                                           |
+| Time to Implement   | 1 person-week                                                                                                                   |
+| Verification Method | Validation testing                                                                                                              |
 
