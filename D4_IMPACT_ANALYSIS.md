@@ -35,17 +35,10 @@ the old one
 | **D4: Read/Write** | R1, R4, R5, R6 | Database schema, transaction boundaries | Repository save/find/update, migration scripts | ACID tests, concurrent write tests, rollback tests |
 
 ---
-
-
-![Context Diagram](https://github.com/WarutSun/JianCha_MoblieApplication/blob/3f7bb08efbbbda996bcb64afa2dded314b7ebf87/After_chages.drawio.svg)
-
-
 # Impact Analysis: Two New Features
 
+![Context Diagram](https://github.com/WarutSun/JianCha_MoblieApplication/blob/3f7bb08efbbbda996bcb64afa2dded314b7ebf87/After_chages.drawio.svg)
  
-
-
-
 ## 1. New Requirements
 
 | New Req ID | Description |  
