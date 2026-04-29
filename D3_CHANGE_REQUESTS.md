@@ -68,12 +68,12 @@
 | Attribute           | Description                                                                                     |
 | ------------------- | ----------------------------------------------------------------------------------------------- |
 | Associated Feature  | Car Review System                                                                               |
-| Description         | Implement input validation and sanitization for review text to prevent invalid or harmful input |
+| Description         | Limit review text input to a maximum of 500 words to prevent excessive data storage usage and potential performance degradation |
 | Maintenance Type    | Preventive                                                                                      |
-| Priority            | High                                                                                            |
-| Severity            | Critical                                                                                        |
+| Priority            | Medium                                                                                           |
+| Severity            | Major                                                                                        |
 | Time to Implement   | 1 person-week                                                                                   |
-| Verification Method | Security testing                                                                                |
+| Verification Method | Boundary and validation testing                                                                               |
 
 ## 🚗Feature 2: One-way Rental / Different Drop-off Location
 ### Corrective Change Requests
