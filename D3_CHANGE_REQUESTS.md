@@ -129,7 +129,7 @@
 | Attribute           | Description                                                                                                                     |
 | ------------------- | -----------------------------------------------------------------------------------------------                                 |
 | Associated Feature  | One-way Rental                                                                                                                  |
-| Description         | Implement dropdown selection for drop-off locations to prevent users from entering invalid or unsupported location combinations |
+| Description         | Implement dropdown selection for drop-off locations to prevent users from entering invalid or unsupported location  |
 | Maintenance Type    | Preventive                                                                                                                      |
 | Priority            | High                                                                                                                            |
 | Severity            | Major                                                                                                                           |
