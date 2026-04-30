@@ -1,103 +1,62 @@
-# JianCha_MoblieApplication
+# JianCha Mobile Application
 
+> **Platform:** Native Android  
 > **Phase:** 2 — Maintenance & New Features
 
 ---
 
-## Live Demo
+## Mobile Repository
 
-| Platform | URL |
-|----------|-----|
-| Web Application | [https://jianchatravelnaja.vercel.app/](https://jianchatravelnaja.vercel.app/) |
-| Mobile App | See [Mobile App Setup](#-mobile-app-setup) below |
+**[https://github.com/WarutSun/JianCha_MoblieApplication](https://github.com/WarutSun/JianCha_MoblieApplication)**
 
 ---
 
-## System Architecture
+## About
 
-```
-┌─────────────────────┐     ┌─────────────────────┐
-│   Web Frontend      │     │   Android Mobile    │
-│  React + Vite +     │     │   Native App        │
-│  Tailwind + shadcn  │     │   (Kotlin/Java)     │
-└────────┬────────────┘     └──────────┬──────────┘
-         │                             │
-         └──────────┬──────────────────┘
-                    ▼
-         ┌─────────────────────┐
-         │   Backend API       │
-         │  Node.js + Express  │
-         │  JWT Authentication │
-         └────────┬────────────┘
-                  ▼
-         ┌─────────────────────┐
-         │   MySQL Database    │
-         │   (Docker)          │
-         └─────────────────────┘
-```
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React, Vite, Tailwind CSS, shadcn/ui |
-| Backend | Node.js, Express, JWT |
-| Database | MySQL (via Docker) |
-| Mobile | Native Android (Kotlin/Java) |
-| Deployment (Frontend) | Vercel |
-| Deployment (Backend) | Render |
+A native Android mobile application developed in Phase 2 to extend TravelNaja's reach to mobile users. The app supports all user-facing functionalities of the car rental system, including two new Phase 2 features.
 
 ---
 
-## Mobile Application
+## New Features (Phase 2)
 
-> **Added in Phase 2**
+### Feature 1 — Car Review System
 
-A native Android mobile application was developed in Phase 2 to extend TravelNaja's reach to mobile users. The app supports **all user-facing functionalities** available on the web system, including:
+Users who have **completed and returned a rental** can leave feedback on the car.
 
-- Browse and search available cars
-- Make and manage reservations
-- View rental history
-- Submit car reviews (new Phase 2 feature)
-- One-way rental booking (new Phase 2 feature)
-
-**Mobile Repository:** (https://github.com/WarutSun/JianCha_MoblieApplication)
-
----
-
-## New Features (Phase 2 Maintenance)
----
-### Feature 1 —  Car Review System
-Users who have **completed and returned a rental** can leave feedback on the car and the rental company.
-
-**Functionality:**
 - Rate the car from **1 to 5 stars**
-- Write a text review about condition, cleanliness, and service quality
+- Write a text review (up to 500 characters)
 - Reviews are displayed publicly to help other users make informed decisions
 
----
 ### Feature 2 — One-Way Rental / Different Drop-off Location
+
 Users can now choose **different pick-up and drop-off locations** in a single booking.
 
-**Functionality:**
-- Select pick-up location (e.g., Chiang Mai Airport)
+- Select a pick-up location (e.g., Chiang Mai Airport)
 - Select a different drop-off location (e.g., downtown Chiang Rai)
-- System **automatically calculates** the additional one-way drop-off fee
+- System **automatically calculates** the additional one-way drop-off fee (500 THB)
 
 ---
 
 ## Tech Stack
 
-| Category | Technologies |
-|----------|-------------|
-| **Frontend** | React, Vite, Tailwind CSS, shadcn/ui |
-| **Backend** | Node.js, Express |
-| **Database** | MySQL |
-| **Mobile** | Android — Kotlin / Java |
-| **DevOps** | Docker, GitHub Actions, SonarQube |
+| Category | Technology |
+|----------|-----------|
+| Mobile Platform | Native Android |
+| Language | Kotlin / Java |
+| Backend API | Node.js + Express (hosted on Render) |
+| Database | MySQL (hosted on Clever Cloud) |
+| CI/CD | GitHub Actions |
+| Code Quality | SonarQube |
 
 ---
 
 ## Mobile App Setup
 
+### Prerequisites
+
+- Android Studio (latest stable version)
+- Android Emulator (API level 26+) or a physical Android device with USB debugging enabled
+- Backend API running (locally or on Render)
 
 ### Steps
 
@@ -116,9 +75,9 @@ Users can now choose **different pick-up and drop-off locations** in a single bo
      ```kotlin
      const val BASE_URL = "https://your-backend-url.onrender.com/api/"
      ```
-   - If running locally, use your machine's IP (not `localhost`):
+   - If running the backend locally, use your machine's LAN IP (not `localhost`):
      ```kotlin
-     const val BASE_URL = "http://192.168.x.x:5000/api/"
+     const val BASE_URL = "http://192.168.x.x:8080/api/"
      ```
 
 4. **Run the App:**
@@ -128,28 +87,26 @@ Users can now choose **different pick-up and drop-off locations** in a single bo
 
 ---
 
-## 🔌 API Overview
+## API Endpoints Used by Mobile App
 
-| Category | Endpoint | Description |
-|----------|----------|-------------|
-| **Auth** | `POST /api/auth/register` | Register a new member |
-| **Auth** | `POST /api/auth/login` | Login and receive JWT token |
-| **Cars** | `GET /api/cars` | List all available cars |
-| **Cars** | `GET /api/cars/:id` | Get car details |
-| **Cars** | `GET /api/cars/:id/reviews` | Get reviews for a car |
-| **Bookings** | `POST /api/bookings` | Create a new booking |
-| **Bookings** | `GET /api/bookings/my` | Get user's booking history |
-| **Bookings** | `POST /api/bookings/:id/review` | Submit a review after return |
-| **Staff** | `GET /api/staff/bookings` | View all bookings (staff only) |
-| **Staff** | `PATCH /api/staff/bookings/:id` | Update booking status (staff only) |
+| Category | Method | Endpoint | Description |
+|----------|--------|----------|-------------|
+| **Auth** | POST | `/api/auth/register` | Register a new member |
+| **Auth** | POST | `/api/auth/login` | Login and receive JWT token |
+| **Cars** | GET | `/api/cars` | List all available cars |
+| **Cars** | GET | `/api/cars/:id` | Get car details |
+| **Reviews** | GET | `/api/reviews/car/:carId` | Get reviews for a car |
+| **Bookings** | POST | `/api/bookings` | Create a new booking (supports drop-off location) |
+| **Bookings** | GET | `/api/bookings` | Get user's booking history |
+| **Bookings** | PUT | `/api/bookings/:id/pay` | Confirm payment for a booking |
+| **Bookings** | PUT | `/api/bookings/:id/return` | Return car and complete booking |
+| **Reviews** | POST | `/api/reviews` | Submit a review after return |
 
 > All protected endpoints require `Authorization: Bearer <token>` in the request header.
 
 ---
 
-## 🔄 CI/CD Pipeline
-
-The project uses **GitHub Actions** for continuous integration and deployment.
+## CI/CD Pipeline
 
 ```
 Push to main branch
@@ -167,13 +124,6 @@ Push to main branch
 │   SonarQube      │
 │  Code Quality    │
 │  Analysis        │
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────┐
-│   Deploy         │
-│  Vercel (web)    │
-│  Render (api)    │
 └──────────────────┘
 ```
 
@@ -182,44 +132,34 @@ Push to main branch
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-2025-ITCS383-JianCha/
-├── frontend/                  # React web application
-│   ├── src/
-│   │   ├── components/        # Reusable UI components
-│   │   ├── pages/             # Page-level components
-│   │   ├── hooks/             # Custom React hooks
-│   │   └── lib/               # Utility functions
-│   └── vite.config.js
-│
-├── backend/                   # Node.js + Express API
-│   ├── src/
-│   │   ├── controllers/       # Route controllers
-│   │   ├── models/            # Database models
-│   │   ├── routes/            # API route definitions
-│   │   ├── middleware/        # Auth & error middleware
-│   │   └── tests/             # Automated tests
-│   └── server.js
-│
-├── docker-compose.yml         # MySQL database setup
+JianCha_MoblieApplication/
+├── app/
+│   └── src/
+│       └── main/
+│           ├── java/
+│           │   └── .../
+│           │       ├── network/       # API config & Retrofit setup
+│           │       ├── ui/            # Activities & Fragments
+│           │       ├── viewmodel/     # ViewModels
+│           │       └── model/         # Data models
+│           └── res/                   # Layouts, drawables, strings
 ├── .github/
-│   └── workflows/             # GitHub Actions CI/CD
-│
-└── docs/                      # Project documentation
-    ├── D2_CODE_QUALITY.md
-    ├── D3_CHANGE_REQUESTS.md
-    ├── D4_IMPACT_ANALYSIS.md
-    └── D5_AI-USAGE.md
+│   └── workflows/                     # GitHub Actions CI/CD
+└── build.gradle
 ```
+
+---
+
 ## 👥 Team Members
 
 | Student ID | Name |
 |------------|------|
-| 6688046 |  Warut    Khamkaveephart |
-| 6688194  | Muhummadcharif    Kapa |
-| 6688083  |Teeramanop    Pinsupa |
-| 6688148 |  Bunyakorn    Wongchadakul |
-| 6688205  | Sirawit    Noomanoch |
-| 6688226  |  Thanawat    Thanasirithip |
+| 6688046 | Warut Khamkaveephart |
+| 6688194 | Muhummadcharif Kapa |
+| 6688083 | Teeramanop Pinsupa |
+| 6688148 | Bunyakorn Wongchadakul |
+| 6688205 | Sirawit Noomanoch |
+| 6688226 | Thanawat Thanasirithip |
