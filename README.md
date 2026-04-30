@@ -5,10 +5,6 @@
 
 ---
 
-## Mobile Repository
-
-**[https://github.com/WarutSun/JianCha_MoblieApplication](https://github.com/WarutSun/JianCha_MoblieApplication)**
-
 ---
 
 ## About
