@@ -86,53 +86,7 @@
 
 > Only nodes directly touched or impacted by the three new features are shown.
 
-```mermaid
-flowchart LR
-    subgraph REQ["Requirements — All Affected"]
-        R1; R2; R3; R4; R5; R6; R7; R8; R9; R10; R11; R12
-    end
-
-    subgraph DES["Design — Affected Components"]
-        D1["D1 Mobile App"]
-        D4["D4 Review Service"]
-        D5["D5 Booking Service"]
-        D6["D6 Car Service"]
-        D7["D7 Database"]
-        D2["D2 Frontend Web"]
-    end
-
-    subgraph COD["Code — Changed Modules"]
-        C1["C1 reviewController"]
-        C2["C2 reviewRoutes"]
-        C3["C3 reviews table"]
-        C4["C4 Bookings.jsx"]
-        C5["C5 Cars.jsx"]
-        C6["C6 bookingController"]
-        C7["C7 dropoffFees.js"]
-        C8["C8 bookings table"]
-        C9["C9 carController"]
-        C10["C10 PaymentSimulation"]
-        C11["C11 cars_screen.dart"]
-        C12["C12 booking screens"]
-    end
-
-    subgraph TST["Test — Affected Tests"]
-        T1; T2; T3; T4; T5; T6; T7; T8; T9; T10; T11; T12
-    end
-
-    R1 & R2 & R6 --> D4 --> C1 --> T1 & T2
-    R3 --> D2 --> C4 --> T3 & T6
-    R4 --> D7 --> C3 --> T4
-    C2 --> T4
-    R5 --> D6 --> C9 --> T5
-    R7 --> D5 --> C6 --> T7 & T10
-    R7 --> D5 --> C7 --> T7
-    R8 --> D2 --> C5 --> T8
-    R9 --> D2 --> C10 --> T9
-    D7 --> C8 --> T10
-    R11 --> D1 --> C11 --> T11
-    R12 --> D1 --> C12 --> T12
-```
+![Context Diagram](https://github.com/WarutSun/JianCha_MoblieApplication/blob/5a58fbec7b89df32c670a64b605df5fd80c42276/traceability_affected.drawio.svg)
 
 ---
 
