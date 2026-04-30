@@ -138,3 +138,21 @@ T1–T8 (Test Cases)
 ## 🖼️ Diagram Reference
  
 ![Context Diagram](https://github.com/WarutSun/JianCha_MoblieApplication/blob/ddbb4c3fa79300544415d5a7d7e38c878b8a3c88/_Directed%20graph%20of%20SLOs.drawio.svg)
+
+
+---
+## 🖼️ Connectivity Matrix With Distances
+ 
+| From \ To    | Auth flow | LoginScreen | RegisterScr | CarsScreen | Car listing | BookingFor | PaymentSim | MyBookings | ProfileScr | MainNav | Profile edit |
+|--------------|----------|-------------|-------------|------------|-------------|------------|------------|------------|------------|---------|--------------|
+| Auth flow    |          | 1           | 1           |            |             |            |            |            | 1          |         | 1            |
+| LoginScreen  |          |             |             |            |             |            |            |            |            |         |              |
+| RegisterScr  |          |             |             |            |             |            |            |            |            |         |              |
+| CarsScreen   |          |             |             |            |             | 1          |            |            |            |         |              |
+| Car listing  |          |             |             | 1          |             |            | 1          |            |            |         |              |
+| BookingFor   |          |             |             |            |             |            |            | 1          |            |         |              |
+| PaymentSim   |          |             |             |            |             |            |            |            |            |         |              |
+| MyBookings   |          |             |             |            |             |            |            |            |            |         |              |
+| ProfileScr   |          |             |             |            |             |            |            |            |            |         |              |
+| MainNav      |          | 1           | 1           | 1          |             | 1          | 1          | 1          | 1          |         |              |
+| Profile edit |          |             |             |            |             |            |            |            |            |         |              |
