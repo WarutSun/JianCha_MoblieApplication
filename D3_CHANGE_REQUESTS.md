@@ -68,7 +68,7 @@
 | Attribute           | Description                                                                                     |
 | ------------------- | ----------------------------------------------------------------------------------------------- |
 | Associated Feature  | Car Review System                                                                               |
-| Description         | Limit review text input to a maximum of 500 words to prevent excessive data storage usage and potential performance degradation |
+| Description         | Limit review text input to a maximum of 500 characters to prevent excessive data storage usage and potential performance degradation |
 | Maintenance Type    | Preventive                                                                                      |
 | Priority            | Medium                                                                                           |
 | Severity            | Major                                                                                        |
