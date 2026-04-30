@@ -1,10 +1,9 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+    id("jacoco")
 }
-
 android {
     namespace = "com.example.mobile"
     compileSdk = flutter.compileSdkVersion
@@ -41,4 +40,31 @@ android {
 
 flutter {
     source = "../.."
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+tasks.withType(Test) {
+    finalizedBy jacocoTestReport
+}
+
+task jacocoTestReport(type: JacocoReport) {
+    dependsOn testDebugUnitTest
+
+    reports {
+        xml.required = true
+        html.required = true
+    }
+
+    def fileFilter = ['/R.class', '/R$.class', '**/BuildConfig.']
+
+    def debugTree = fileTree(dir: "$buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
+
+    sourceDirectories.setFrom files(["src/main/java"])
+    classDirectories.setFrom files([debugTree])
+    executionData.setFrom fileTree(dir: buildDir, includes: [
+        "jacoco/testDebugUnitTest.exec"
+    ])
 }
