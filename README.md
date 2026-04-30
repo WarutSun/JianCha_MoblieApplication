@@ -96,51 +96,6 @@ Users can now choose **different pick-up and drop-off locations** in a single bo
 
 ---
 
-## Installation & Setup
-
-### Prerequisites
-- Node.js v18+
-- Docker & Docker Compose
-- Git
-
-### 1. Clone the Repository
-
-```bash
-# Web / Backend repository
-git clone https://github.com/WarutSun/2025-ITCS383-JianCha
-cd 2025-ITCS383-JianCha
-```
-
-### 2. Start the Database (Docker)
-
-```bash
-docker-compose up -d
-```
-
-> This spins up a MySQL instance. Wait a few seconds for it to initialize.
-
-### 3. Run the Backend
-
-```bash
-cd backend
-npm install
-npm run dev
-```
-
-The backend runs on `http://localhost:5000` by default.
-
-### 4. Run the Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-The web app runs on `http://localhost:5173` by default.
-
----
-
 ## Mobile App Setup
 
 
@@ -224,24 +179,6 @@ Push to main branch
 
 - **GitHub Actions** — Automates build, test, and deployment on every push
 - **SonarQube** — Scans for bugs, code smells, vulnerabilities, and duplication
-
----
-
-## 🧪 Testing
-
-- **Automated unit and integration tests** are included for both backend and new features
-- **Coverage requirement:** New code must achieve **>90% test coverage**
-- Run tests locally:
-
-```bash
-# Backend tests
-cd backend
-npm run test
-
-# Frontend tests
-cd frontend
-npm run test
-```
 
 ---
 
