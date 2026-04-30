@@ -1,4 +1,4 @@
-## NEW D2: Code Quality Report
+##D2: Code Quality Report
 
 ## Overview
 
