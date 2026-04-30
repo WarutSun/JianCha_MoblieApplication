@@ -78,59 +78,7 @@
 
 ## Section 2: Full Traceability Graph (Requirements → Design → Code → Test)
 
-```mermaid
-flowchart LR
-    subgraph REQ["Requirements"]
-        R1; R2; R3; R4; R5; R6; R7; R8; R9; R10; R11; R12
-    end
-
-    subgraph DES["Design"]
-        D1; D2; D3; D4; D5; D6; D7; D8
-    end
-
-    subgraph COD["Code"]
-        C1; C2; C3; C4; C5; C6; C7; C8; C9; C10; C11; C12
-    end
-
-    subgraph TST["Test"]
-        T1; T2; T3; T4; T5; T6; T7; T8; T9; T10; T11; T12
-    end
-
-    R1 --> D3 & D4 & D7
-    R2 --> D3 & D4
-    R3 --> D2 & D4
-    R4 --> D3 & D4 & D7
-    R5 --> D2 & D6
-    R6 --> D2 & D3 & D4
-    D4 --> C1 & C2 & C3
-    D3 --> C6 & C9
-    D2 --> C4 & C5
-    D7 --> C3 & C8
-    D6 --> C9
-    C1 --> T1 & T2 & T4
-    C2 --> T1 & T4
-    C3 --> T4
-    C4 --> T3 & T6
-    C5 --> T5
-    C9 --> T5
-    R7 --> D3 & D5
-    R8 --> D2 & D5
-    R9 --> D2
-    R10 --> D2
-    D5 --> C6 & C7 & C8
-    D2 --> C5 & C10
-    C6 --> T7 & T10
-    C7 --> T7
-    C8 --> T10
-    C5 --> T8 & T9
-    C10 --> T9
-    R11 --> D1
-    R12 --> D1 & D5 & D4
-    D1 --> C11 & C12
-    D8 --> C11 & C12
-    C11 --> T11
-    C12 --> T12
-```
+![Context Diagram](https://github.com/WarutSun/JianCha_MoblieApplication/blob/c22db91e584115c0fd4da05f3d7a61350811336d/traceability_full.drawio%20(1).svg)
 
 ---
 
