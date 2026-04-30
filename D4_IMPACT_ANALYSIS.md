@@ -141,7 +141,7 @@ T1–T8 (Test Cases)
 
 
 ---
-## 🖼️ Connectivity Matrix With Distances
+## 👾 Connectivity Matrix With Distances
  
 | From \ To    | Auth flow | LoginScreen | RegisterScr | CarsScreen | Car listing | BookingFor | PaymentSim | MyBookings | ProfileScr | MainNav | Profile edit |
 |--------------|----------|-------------|-------------|------------|-------------|------------|------------|------------|------------|---------|--------------|
