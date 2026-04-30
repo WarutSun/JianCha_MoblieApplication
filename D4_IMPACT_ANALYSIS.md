@@ -156,3 +156,51 @@ T1–T8 (Test Cases)
 | ProfileScr   |          |             |             |            |             |            |            |            |            |         |              |
 | MainNav      |          | 1           | 1           | 1          |             | 1          | 1          | 1          | 1          |         |              |
 | Profile edit |          |             |             |            |             |            |            |            |            |         |              |
+
+
+---
+
+
+
+## 1. Easy Change Requests
+
+| # | Change Request | Why It's Easy |
+|---|---------------|---------------|
+| 1 | **UI text & button labels** (e.g. "Book Now", "Proceed to Payment") | All strings are hardcoded inline — a simple find-and-replace is sufficient |
+| 2 | **Color adjustments** (e.g. button color, status badge color) | Colors use consistent hex values like `Color(0xFF22C55E)` that are easy to locate across files |
+| 3 | **Adding a new promo code** | Only requires appending a string to the `_validPromoCodes` list in `booking_form_screen.dart` — one line change |
+| 4 | **Adding a new car type filter** (e.g. "truck") | Just add one more string to the `['all', 'sedan', 'suv', 'van']` array in `cars_screen.dart` |
+| 5 | **Changing the discount percentage** | Single constant `_discountPercent = 30` in `booking_form_screen.dart` — update one value |
+| 6 | **Adding a new drop-off fee route** | Add a key-value pair to the `_fees` map in `booking_form_screen.dart` — clear structure, no logic change needed |
+
+---
+
+## 2. Difficult Change Requests
+
+| # | Change Request | Why It's Difficult |
+|---|---------------|-------------------|
+| 1 | **Adding a new payment method** (e.g. PromptPay, bank transfer) | `payment_simulation_screen.dart` is built around a single hardcoded credit card form. There is no abstraction for payment types, and `_handlePayment()` mixes UI simulation, API calls, and navigation in one block |
+| 2 | **Changing the promotion/discount logic** | Discount calculation is scattered across multiple getters (`_pricePerDay`, `_subtotal`, `_totalBeforePromo`, `_totalPrice`) in `booking_form_screen.dart` and partially recalculated again in `payment_simulation_screen.dart` — any rule change risks inconsistency |
+| 3 | **Internationalizing the app (i18n)** | Every user-facing string — error messages, labels, button text, snackbar messages — is hardcoded in English directly inside widget trees across all 9 files. No centralized string resource exists |
+| 4 | **Supporting multiple or tiered promotions** | The promo system assumes exactly one discount type (30% off subtotal only). This assumption is baked into both the UI display logic and the calculation getters — no extensible structure exists |
+| 5 | **Modifying the booking status workflow** (e.g. adding "under review") | Status logic touches `_statusColor()`, action button rendering, and API calls in `my_bookings_screen.dart`, all tightly coupled with no central enum or status definition |
+| 6 | **Moving business logic to a service layer** | All pricing calculations, validation rules (max 30 days, promo validation), and API calls live directly inside `StatefulWidget` classes — no separation of concerns, making extraction risky and time-consuming |
+
+---
+
+## 3. What Better Previous Developers Would Have Done
+
+| # | Expectation | Explanation |
+|---|-------------|-------------|
+| 1 | **Extract business logic into service/provider classes** | Pricing calculations, promo validation, and fee logic should live in a `BookingService` or `PricingCalculator` class — not inside `_BookingFormScreenState`. This makes logic testable and reusable |
+| 2 | **Centralize theme and constants** | All repeated `Color(0xFF262626)`, `Color(0xFFA3A3A3)`, spacing values, and text styles should be in a shared `AppTheme` or `AppColors` class. The same hex codes appear dozens of times across files |
+| 3 | **Use enums for statuses, car types, and locations** | Raw strings like `'pending'`, `'confirmed'`, `'sedan'`, and `'Bangkok'` are used everywhere. An `enum BookingStatus`, `enum CarType`, and a `Location` model would catch typos at compile time and enable exhaustive switch statements |
+| 4 | **Centralize string resources** | Even without full i18n, putting all user-facing strings in one `AppStrings` class would make copy changes, translation, and content auditing dramatically easier |
+| 5 | **Use state management consistently** | The app uses `Provider` for auth but raw `setState` for everything else. A consistent approach — extending Provider, Riverpod, or Bloc — would make screens much thinner and easier to maintain |
+| 6 | **Extract reusable widget components** | The styled dropdown container, info row pattern, and price summary row are all duplicated across screens. Shared widgets like `AppDropdown` and `PriceSummaryRow` would reduce copy-paste bugs significantly |
+
+---
+
+## Summary
+
+The Travel Naja codebase is functional and readable, but it prioritizes **speed of initial development** over **long-term maintainability**. Simple cosmetic and configuration changes are easy, but any structural change — new payment flows, discount logic, or status workflows — requires touching multiple tightly coupled locations. The main root cause is the absence of a service layer, centralized constants, and reusable abstractions.
