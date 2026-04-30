@@ -128,3 +128,13 @@ D1–D8 (Designs)
 C1–C8 (Code Components)
    ↓
 T1–T8 (Test Cases)
+ 
+```
+---
+# 📊 Directed Graph of SLOs
+ 
+---
+
+## 🖼️ Diagram Reference
+ 
+![Context Diagram](https://github.com/WarutSun/JianCha_MoblieApplication/blob/ddbb4c3fa79300544415d5a7d7e38c878b8a3c88/_Directed%20graph%20of%20SLOs.drawio.svg)
